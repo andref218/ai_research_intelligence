@@ -3,3 +3,9 @@ name = "ai-research-intelligence"
 version = "0.1.0"
 description = "AI-powered enterprise research platform."
 requires-python = ">=3.11"
+dependencies = [
+    "openai-agents",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic-settings",
+]
