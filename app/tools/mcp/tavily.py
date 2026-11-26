@@ -2,7 +2,10 @@
 Provides the connection configuration for the Tavily MCP server.
 """
 
-from agents.mcp import (MCPServerStreamableHttp,create_static_tool_filter,)
+from agents.mcp import (
+    MCPServerStreamableHttp,
+    create_static_tool_filter,
+)
 
 from app.core.config import settings
 

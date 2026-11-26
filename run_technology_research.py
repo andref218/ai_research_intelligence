@@ -10,6 +10,7 @@ from agents import Runner
 
 from app.agents.technology_researcher import technology_research_agent
 from app.tools.mcp.tavily import tavily_mcp_server
+from app.tools.mcp.huggingface import huggingface_mcp_server
 
 
 async def main():
@@ -25,11 +26,11 @@ async def main():
     - Relevant technological trends.
     """
 
-    async with tavily_mcp_server:
+    async with tavily_mcp_server, huggingface_mcp_server:
         result = await Runner.run(
             technology_research_agent,
             research_task,
-            max_turns=4,
+            max_turns=8,
         )
 
         print(json.dumps(

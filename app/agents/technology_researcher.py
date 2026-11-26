@@ -7,6 +7,7 @@ from agents import Agent
 from app.core.config import TECHNOLOGY_RESEARCH_MODEL
 from app.schemas.technology_findings import TechnologyFindings
 from app.tools.mcp.tavily import tavily_mcp_server
+from app.tools.mcp.huggingface import huggingface_mcp_server
 
 
 technology_research_agent = Agent(
@@ -36,6 +37,40 @@ Research workflow:
    of relevant source URLs.
 5. Verify important technical claims against the extracted content.
 6. Base your findings on verified information whenever possible.
+
+Hugging Face research capabilities:
+
+Use Hugging Face MCP tools when the research task involves
+specific AI ecosystem resources, including:
+
+- Foundation models and specialized AI models.
+- Embedding and reranking models.
+- AI datasets and benchmarks.
+- Academic papers and scientific research.
+- Hugging Face technical documentation and model cards.
+
+Hugging Face research workflow:
+
+1. Use hub_repo_search to discover relevant models or datasets.
+2. Use hub_repo_details to investigate relevant repositories
+   and obtain their technical metadata.
+3. Use hf_fs search to discover relevant research papers
+   or technical documentation.
+4. Use hf_fs cat to inspect relevant paper content,
+   model cards or documentation when deeper analysis is necessary.
+5. Include the original Hugging Face or publication URLs
+   in your findings.
+
+Conditional tool usage:
+
+- Use Hugging Face only when it adds relevant technical evidence.
+- Do not use Hugging Face for unrelated topics, such as
+  general cloud infrastructure research.
+- Do not use it simply to increase the number of sources.
+- Prefer relevant primary research and official documentation.
+- Distinguish research publications from commercially available models.
+- Do not assume that a model's presence on Hugging Face
+  means it is production-ready.
 
 Technology assessment:
 
@@ -79,5 +114,8 @@ Focus exclusively on technology research.
 """,
     model=TECHNOLOGY_RESEARCH_MODEL,
     output_type=TechnologyFindings,
-    mcp_servers=[tavily_mcp_server],
+    mcp_servers=[
+        tavily_mcp_server,
+        huggingface_mcp_server,
+    ],
 )
