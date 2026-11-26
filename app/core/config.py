@@ -1,7 +1,10 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-# Model used by the Research Planner Agent to generate structured research plans.
+# Agent model configuration
 RESEARCH_PLANNER_MODEL = "gpt-6-luna"
+MARKET_RESEARCH_MODEL = "gpt-6-luna"
+TECHNOLOGY_RESEARCH_MODEL = "gpt-6-luna"
+COMPETITOR_RESEARCH_MODEL = "gpt-6-luna"
 
 
 class Settings(BaseSettings):
