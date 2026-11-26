@@ -4,7 +4,7 @@ Defines the Technology Research Agent.
 
 from agents import Agent
 
-from app.core.config import RESEARCH_PLANNER_MODEL
+from app.core.config import TECHNOLOGY_RESEARCH_MODEL
 from app.schemas.technology_findings import TechnologyFindings
 from app.tools.mcp.tavily import tavily_mcp_server
 
@@ -77,7 +77,7 @@ These responsibilities belong to other research agents.
 
 Focus exclusively on technology research.
 """,
-    model=RESEARCH_PLANNER_MODEL,
+    model=TECHNOLOGY_RESEARCH_MODEL,
     output_type=TechnologyFindings,
     mcp_servers=[tavily_mcp_server],
 )

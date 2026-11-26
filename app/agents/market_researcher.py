@@ -4,7 +4,7 @@ Defines the Market Research Agent.
 
 from agents import Agent
 
-from app.core.config import RESEARCH_PLANNER_MODEL
+from app.core.config import MARKET_RESEARCH_MODEL
 from app.schemas.research_findings import ResearchFindings
 from app.tools.mcp.tavily import tavily_mcp_server
 
@@ -81,7 +81,7 @@ in depth. These responsibilities belong to other research agents.
 Focus exclusively on market research.
 """
 ,
-    model=RESEARCH_PLANNER_MODEL,
+    model=MARKET_RESEARCH_MODEL,
     output_type=ResearchFindings,
     mcp_servers=[tavily_mcp_server],
 )
