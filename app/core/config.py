@@ -1,10 +1,14 @@
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+load_dotenv()
 
 # Agent model configuration
 RESEARCH_PLANNER_MODEL = "gpt-6-luna"
 MARKET_RESEARCH_MODEL = "gpt-6-luna"
 TECHNOLOGY_RESEARCH_MODEL = "gpt-6-luna"
 COMPETITOR_RESEARCH_MODEL = "gpt-6-luna"
+VERIFICATION_ANALYSIS_MODEL = "gpt-6-luna"
 
 
 class Settings(BaseSettings):
